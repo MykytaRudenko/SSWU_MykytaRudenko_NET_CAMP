@@ -11,7 +11,7 @@ public class WaterTower
     private const double _waterSpeed = 4f;
     public WaterTower(double maxLevel = 150f, params Pump[] pumps)
     {
-        _maxLevel = Validation.CheckNull(maxLevel);
+        _maxLevel = Validation.CheckEqualsZero(maxLevel);
         _pumps = new List<Pump>(pumps);
         _faucet = new Faucet();
     }

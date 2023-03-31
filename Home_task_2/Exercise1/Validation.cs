@@ -8,7 +8,7 @@ public static class Validation
         return value;
     }
 
-    public static double CheckNull(double value)
+    public static double CheckEqualsZero(double value)
     {
         if (value == 0)
         {
