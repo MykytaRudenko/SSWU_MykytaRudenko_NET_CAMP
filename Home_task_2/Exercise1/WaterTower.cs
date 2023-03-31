@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Design;
-using System.Text;
+﻿using System.Text;
 
 namespace Exercise1;
 
@@ -12,7 +11,7 @@ public class WaterTower
     private const double _waterSpeed = 4f;
     public WaterTower(double maxLevel = 150f, params Pump[] pumps)
     {
-        _maxLevel = maxLevel;
+        _maxLevel = Validation.CheckNull(maxLevel);
         _pumps = new List<Pump>(pumps);
         _faucet = new Faucet();
     }
@@ -49,8 +48,8 @@ public class WaterTower
         int i = 0;
         foreach (var pump in _pumps)
         {
-            sb.Append("Насос номер" + i++ + '\n');
-            sb.Append(pump.ToString());
+            sb.Append("Номер насосу: " + i++ + '\n');
+            sb.Append(pump.ToString() + '\n');
         }
         return sb.ToString();
     }

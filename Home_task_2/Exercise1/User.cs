@@ -12,20 +12,20 @@ public class User
     public double Consuption 
     { 
         get { return _consuption; }
-        set { _consuption = value; }
+        set { _consuption = Validation.CheckLessThanZero(value); }
     }
     private double _used;
 
     public double Used
     {
         get { return _used; }
-        set { _used = value; }
+        set { _used = Validation.CheckLessThanZero(value); }
     }
     public User(string name, string surname, double consuption)
     {
         _name = name;
         _surname = surname;
-        _consuption = consuption;
+        _consuption = Validation.CheckLessThanZero(consuption);
         _used = 0f;
     }
     public override string ToString()
