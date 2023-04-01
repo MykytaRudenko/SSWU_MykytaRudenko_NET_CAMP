@@ -17,7 +17,7 @@ public class ColorizedArray
     }
 
     private void Colorize()
-    {
+    {//Краще б мати рандомний(випадковий) генератор
         for (int i = 0; i < _sizeY; i++)
         {
             for (int j = 0; j < _sizeX; j++)
@@ -40,6 +40,7 @@ public class ColorizedArray
         sb.Append("Lenght: " + lineLenght);
         return sb.ToString();
     }
+    // краще повертати координати початку, довжину та колір.
     private List<Pixel> FindLongestLine()
     {
         List<Pixel> longestLine = new List<Pixel>();
