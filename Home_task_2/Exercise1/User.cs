@@ -26,7 +26,7 @@ public class User
         _name = name;
         _surname = surname;
         _consuption = Validation.CheckLessThanZero(consuption);
-        _used = 0f;
+        _used = 0d;
     }
     public override string ToString()
     {
