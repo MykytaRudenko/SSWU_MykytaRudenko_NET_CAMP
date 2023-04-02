@@ -24,12 +24,12 @@ public class SpiralSnakeArray
         Directions verticalDirection = new Directions();
         Directions horizontalDirection = new Directions();
         verticalDirection.Next();
-        
+
         while (counter < _sizeX * _sizeY)
         {
             _array[row, col] = value++;
             if(CheckChangeDirection(row, col, row + verticalDirection.Current, col + horizontalDirection.Current))
-            {
+            {//Трішки перемудровано. Я на занятті поясню.
                 verticalDirection.Next();
                 horizontalDirection.Next();
             }
