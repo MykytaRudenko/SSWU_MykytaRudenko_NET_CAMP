@@ -10,7 +10,6 @@ public static class SentencesFinder
         int startIndex = 0;
         int endIndex = 0;
         int lenght;
-        bool isSymbolsExist;
         foreach (var line in text)
         {
             lenght = line.Length;
@@ -18,20 +17,18 @@ public static class SentencesFinder
             endIndex = line.IndexOf('.');
             while (endIndex != -1)
             {
-                // TODO: трабли з довжиною
-                tempSentence.Add(line.Substring(startIndex, lenght - endIndex + 1));
-                isSymbolsExist = CheckSymbols(tempSentence, firstSpecialSymbol, secondSpecialSymbol);
-                if (isSymbolsExist)
+                tempSentence.Add(line.Substring(startIndex, endIndex - startIndex + 1));
+                if (CheckSymbols(tempSentence, firstSpecialSymbol, secondSpecialSymbol))
                 {
-                    foreach (var l in tempSentence)
+                    foreach (var tempLine in tempSentence)
                     {
-                        sentence.Add(l);
+                        sentence.Add(tempLine);
                     }
                 }
-                startIndex = endIndex + 2;
+                startIndex = endIndex + 1;
                 endIndex = line.IndexOf('.', startIndex);
+                tempSentence.Clear();
             }
-            tempSentence.Clear();
             tempSentence.Add(line.Substring(startIndex, lenght - startIndex));
         }
         return sentence;
