@@ -3,35 +3,30 @@
 public static class SentencesFinder
 {
     public static List<string> FindSentenceWithSymbols(List<string> text, char firstSpecialSymbol,
-        char secondSpecialSymbol)
+        char secondSpecialSymbol, params char[] punctuations)
     {
-        List<string> sentence = new List<string>();
+        List<string> finalSentences = new List<string>();
         List<string> tempSentence = new List<string>();
-        int startIndex = 0;
-        int endIndex = 0;
+        int startIndex;
+        int endIndex;
         int lenght;
         foreach (var line in text)
         {
             lenght = line.Length;
             startIndex = 0;
-            endIndex = line.IndexOf('.');
-            while (endIndex != -1)
+            while ((endIndex = line.IndexOfAny(punctuations, startIndex)) != -1)
             {
-                tempSentence.Add(line.Substring(startIndex, endIndex - startIndex + 1));
+                tempSentence.Add(line.Substring(startIndex, endIndex - startIndex + 1).Trim());
                 if (CheckSymbols(tempSentence, firstSpecialSymbol, secondSpecialSymbol))
                 {
-                    foreach (var tempLine in tempSentence)
-                    {
-                        sentence.Add(tempLine);
-                    }
+                    finalSentences.AddRange(tempSentence.Where(s => !string.IsNullOrEmpty(s)));
                 }
                 startIndex = endIndex + 1;
-                endIndex = line.IndexOf('.', startIndex);
                 tempSentence.Clear();
             }
-            tempSentence.Add(line.Substring(startIndex, lenght - startIndex));
+            tempSentence.Add(line.Substring(startIndex, lenght - startIndex).Trim());
         }
-        return sentence;
+        return finalSentences;
     }
     private static bool CheckSymbols(List<string> lines, char firstSpecialSymbol, char secondSpecialSymbol)
     {
