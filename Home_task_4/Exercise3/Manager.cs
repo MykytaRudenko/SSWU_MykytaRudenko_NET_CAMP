@@ -29,12 +29,13 @@ public class QuarterFileManager
             }
             stream.Close();
             file.Close();
+            return new Quarter(id, cost, users);
         }
         catch (Exception ex)
         {
             Console.WriteLine("Exception: " + ex.Message);
+            return null;
         }
-        return null;
     }
     private int GetId(string line)
     {
