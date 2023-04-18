@@ -5,9 +5,11 @@ public static class StringsRefactor
     public static int SecondEntry(string mainStr, string str)
     {
         int index = mainStr.IndexOf(str, mainStr.IndexOf(str) + 1);
+        // Це лишнє. 0 -це реальний номер. Тому ввели користувача в оману.
         if (index == -1) return 0;
         return index;
     }
+    // я б цей метод окремо не створювала. Просто одразу в 19 стрічку клала 14.
     private static string[] RemoveSpaces(string str)
     {
         return str.Split(" ", StringSplitOptions.RemoveEmptyEntries);
@@ -38,6 +40,7 @@ public static class StringsRefactor
                 words[i] = str;
             }
         }
+        // Втрачаємо вхідні пробільні символи.
         return string.Join(" ", words);
     }
     private static bool ContainsDoubleLetter(string word)
