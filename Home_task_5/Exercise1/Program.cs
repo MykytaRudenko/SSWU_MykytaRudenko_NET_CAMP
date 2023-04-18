@@ -1,6 +1,6 @@
 ﻿using Exercise1;
 
-List<Point> trees = new List<Point>()
+List<Point> firstTrees = new List<Point>()
 {
     new Point(3.4, 32.5),
     new Point(-3.0, 55.3),
@@ -10,5 +10,22 @@ List<Point> trees = new List<Point>()
     new Point(4, 0),
     new Point(-30, -20)
 };
-Fence fence = new Fence(trees);
-Console.WriteLine(fence);
+Fence firstFence = new Fence(firstTrees);
+Console.WriteLine(firstFence);
+Console.WriteLine("Length: " + firstFence.Length);
+Console.WriteLine(new string('-', 50));
+
+List<Point> secondTrees = new List<Point>()
+{
+    new Point(3.4, 32.5),
+    new Point(-3, 55.3),
+    new Point(10, -23.3),
+    new Point(-12.56, 0)
+};
+Fence secondFence = new Fence(secondTrees);
+Console.WriteLine(secondFence);
+Console.WriteLine("Length: " + secondFence.Length);
+Console.WriteLine(new string('-', 50));
+
+Console.WriteLine("first fence > second fence: " + (firstFence > secondFence));
+Console.WriteLine("first fence < second fence: " + (firstFence < secondFence));
