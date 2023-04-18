@@ -21,6 +21,6 @@ public class Product
 
     public override string ToString()
     {
-        return $"height: {_height} length: {_length} width: {_width}";
+        return "";
     }
 }

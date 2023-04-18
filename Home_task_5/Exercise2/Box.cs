@@ -1,31 +1,24 @@
-﻿namespace Exercise2;
+﻿using System.Text;
 
-class Box
+namespace Exercise2;
+
+class Box : Product
 {
     private List<Product> _products;
 
     private string _name;
-    private double _height;
-    private double _length;
-    private double _width;
 
     public Box(string name, params Product[] products)
+        : base(products.Sum(p => p.Height), products.Max(p => p.Length), products.Max(p => p.Width))
     {
         _name = name;
         _products = new List<Product>(products);
-        CalculateDimensions();
     }
     public Box(string name, List<Product> products)
+        : base(products.Sum(p => p.Height), products.Max(p => p.Length), products.Max(p => p.Width))
     {
         _name = name;
         _products = new List<Product>(products);
-        CalculateDimensions();
-    }
-    private void CalculateDimensions()
-    {
-        _width = _products.Max(p => p.Width);
-        _height = _products.Sum(p => p.Height);
-        _length = _products.Max(p => p.Length);
     }
 
     public static Box operator +(Box b, Product p)
@@ -36,6 +29,14 @@ class Box
 
     public override string ToString()
     {
-        return $"{_products.Count} products, {_height}x{_length}x{_width}";
+        StringBuilder sb = new StringBuilder();
+        sb.Append($"\"{_name}\"" + "{\n");
+        sb.Append($"height: {Height} length: {Length} width: {Width}\n");
+        foreach (var product in _products)
+        {
+            sb.Append(product);
+        }
+        sb.Append("\n}  ");
+        return sb.ToString();
     }
 }
