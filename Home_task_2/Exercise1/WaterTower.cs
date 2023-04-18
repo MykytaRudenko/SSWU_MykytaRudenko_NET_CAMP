@@ -1,7 +1,7 @@
 ﻿using System.Text;
 
 namespace Exercise1;
-
+//Хто керує часом?
 public class WaterTower
 {
     private readonly double _maxLevel;
@@ -19,6 +19,7 @@ public class WaterTower
     // якщо вода на рівні 0, то зачиняє кран,
     // вмикає насоси до моменту, поки вежа не наповниться повністю.
     // повертає рівень води
+    //Хто викликає цей метод?
     public double CheckWaterLevel()
     {
         
