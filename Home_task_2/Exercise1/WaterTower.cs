@@ -1,13 +1,14 @@
 ﻿using System.Text;
 
 namespace Exercise1;
-
+//Хто керує часом?
 public class WaterTower
 {
     private readonly double _maxLevel;
     private double _currentLevel;
     private Faucet _faucet;
     private List<Pump> _pumps;
+    //Це закритs дані, а краще, щоб їх можна було ззовні конфігурувати
     private const double WATERSPEED = 4d;
     public WaterTower(double maxLevel = 150d, params Pump[] pumps)
     {
@@ -18,6 +19,7 @@ public class WaterTower
     // якщо вода на рівні 0, то зачиняє кран,
     // вмикає насоси до моменту, поки вежа не наповниться повністю.
     // повертає рівень води
+    //Хто викликає цей метод?
     public double CheckWaterLevel()
     {
         
