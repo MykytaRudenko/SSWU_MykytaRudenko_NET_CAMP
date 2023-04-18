@@ -8,6 +8,7 @@ public class WaterTower
     private double _currentLevel;
     private Faucet _faucet;
     private List<Pump> _pumps;
+    //Це закритs дані, а краще, щоб їх можна було ззовні конфігурувати
     private const double WATERSPEED = 4d;
     public WaterTower(double maxLevel = 150d, params Pump[] pumps)
     {
