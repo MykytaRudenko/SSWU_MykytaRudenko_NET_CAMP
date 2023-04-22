@@ -1,5 +1,5 @@
 ﻿namespace Exercise1;
-
+//молодець!
 public static class GrahamScannner
 {
     public static List<Point> ConvexHull(List<Point> points)
