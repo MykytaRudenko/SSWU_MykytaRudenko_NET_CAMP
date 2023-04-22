@@ -40,7 +40,7 @@ public class EmailAddressChecker
             }
         }
     }
-    
+    // І ще кількома іншими способами.... Але наша задача стати тими, хто вміє і сам все це створювати і, звичайно, цікавіші речі теж))
     // можна було реалізувати перевірку просто за допомогою System.Net.Mail.MailAddress
     
     // public bool IsValidEmailNetMethod(string email)
@@ -62,6 +62,7 @@ public class EmailAddressChecker
         {
             char firstSymbol = domens[0][0];
             char lastSymbol = domens[0][domens[0].Length - 1];
+            // константу слід винести.Якщо поміняють вимогу, метод буде не придатний.
             if (firstSymbol == '.' || lastSymbol == '.' || domens[0].Length > 64) return false;
             foreach (var symbol in domens[0])
             {
@@ -76,6 +77,7 @@ public class EmailAddressChecker
             if (firstSymbol == '.' || lastSymbol == '-') return false;
             foreach (var symbol in domens[1])
             {
+                //char.IsDigital(), char.isLetter()
                 if (!((symbol >= '0' && symbol <= '9') || (symbol >= 'A' && symbol <= 'Z') ||
                       (symbol >= 'a' && symbol <= 'z') || symbol == '-' || symbol == '.'))
                 {
