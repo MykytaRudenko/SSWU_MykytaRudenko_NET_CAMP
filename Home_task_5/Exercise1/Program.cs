@@ -1,5 +1,5 @@
 ﻿using Exercise1;
-
+//Mykyta	Rudenko	 90	0	0	98	90	90	60	85,6. вітаю Вас у 2 турі.
 List<Point> firstTrees = new List<Point>()
 {
     new Point(3.4, 32.5),
