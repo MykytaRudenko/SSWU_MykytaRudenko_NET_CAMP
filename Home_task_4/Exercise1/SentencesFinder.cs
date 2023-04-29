@@ -28,6 +28,8 @@ public static class SentencesFinder
         }
         return finalSentences;
     }
+    // Добре, що для довільних символів.
+    // А якщо є відкриваюча, а немає закриваючої дужки?
     private static bool CheckSymbols(List<string> lines, char firstSpecialSymbol, char secondSpecialSymbol)
     {
         bool isFirstSymbolExist = false;

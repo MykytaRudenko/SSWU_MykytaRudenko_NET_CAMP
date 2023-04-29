@@ -1,5 +1,5 @@
 ﻿namespace Exercise1;
-
+//молодець!
 public static class GrahamScannner
 {
     public static List<Point> ConvexHull(List<Point> points)
@@ -8,7 +8,7 @@ public static class GrahamScannner
         {
             throw new ArgumentException("At least 3 points required", nameof(points));
         }
-    
+    // можна починати з будь-якої кутової
         // шукає початкову точку
         Point anchor = points[0];
         foreach (Point p in points.Skip(1))

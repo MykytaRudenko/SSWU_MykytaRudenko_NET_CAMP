@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Exercise1;
+// на екрані тільки текст виведений і немає результатів розв'язку.
 Console.OutputEncoding = Encoding.UTF8;
 
 List<string> text = new List<string>();
