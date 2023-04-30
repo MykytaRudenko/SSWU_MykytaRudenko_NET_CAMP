@@ -42,11 +42,4 @@ public class DiagonalSnakeEnumerator : IEnumerable
             ++counter;
         }
     }
-    private bool CheckChangeDirection(int row, int col)
-    {
-        bool isBound = (col == _array.GetLength(1) - 1 && row == 0) ||
-                       (col == _array.GetLength(1) - 1 && row == _array.GetLength(0) - 1) ||
-                       (row == _array.GetLength(0) - 1 && col == 0);
-        return isBound;
-    }
 }
