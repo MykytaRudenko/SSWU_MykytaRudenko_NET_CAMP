@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using System.Text;
 
 namespace Exercise1;
 
-public class DiagonalSnakeEnumerator : IEnumerable
+public class DiagonalEnumeratorGenerator : IEnumerable
 {
     private int[,] _array;
-    public DiagonalSnakeEnumerator(int[,] array)
+    public DiagonalEnumeratorGenerator(int[,] array)
     {
         _array = array;
     }
@@ -16,8 +17,8 @@ public class DiagonalSnakeEnumerator : IEnumerable
         int counter = 0;
         int i = 0;
         int j = 0;
-        int sizeJ = _array.GetLength(0);
-        int sizeI = _array.GetLength(1);
+        int sizeI = _array.GetLength(0);
+        int sizeJ = _array.GetLength(1);
         while (counter < sizeI * sizeJ)
         {
             yield return _array[i, j];
@@ -41,5 +42,22 @@ public class DiagonalSnakeEnumerator : IEnumerable
             j += horizontalDirection.Current;
             ++counter;
         }
+    }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        int sizeI = _array.GetLength(0);
+        int sizeJ = _array.GetLength(1);
+        sb.AppendLine($"Start matrix size: {sizeI}x{sizeJ}");
+        for (int i = 0; i < sizeI; i++)
+        {
+            for (int j = 0; j < sizeJ; j++)
+            {
+                sb.Append(_array[i, j] + "\t");
+            }
+            sb.AppendLine();
+        }
+        return sb.ToString();
     }
 }
