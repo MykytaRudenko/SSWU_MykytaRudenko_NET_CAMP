@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 
 namespace Exercise2;
-
+// Злиття тут те, що треба)
 public static class SortedArrays
 {
     // для першого методу використав сортування злиттям,
