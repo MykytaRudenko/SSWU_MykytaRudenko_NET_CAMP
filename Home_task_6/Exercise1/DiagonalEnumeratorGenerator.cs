@@ -7,7 +7,7 @@ public class DiagonalEnumeratorGenerator : IEnumerable
 {
     private int[,] _array;
     public DiagonalEnumeratorGenerator(int[,] array)
-    {
+    {// Не глибока копія!!!
         _array = array;
     }
     public IEnumerator GetEnumerator()
@@ -22,6 +22,7 @@ public class DiagonalEnumeratorGenerator : IEnumerable
         while (counter < sizeI * sizeJ)
         {
             yield return _array[i, j];
+           // на кожному елементі Ви питаєте, чи він не останній або перший.Це надлишково.
             if((j == 0 || j == sizeJ - 1) && i != sizeI - 1)
             {
                 ++i;
