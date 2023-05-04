@@ -1,10 +1,10 @@
 ﻿namespace Exercise3;
-
+// Сумарний бал - 90.
 public static class UniqueWordFinder
 {
     static readonly char[] splitChars = { ' ', ',', '.', '!', '?', '\n' };
     public static IEnumerable<string> FindWords(string text)
-    {
+    {// Не бачу змісту для функції обгортки.
         string[] words = SplitText(text.ToLower());
         List<string> uniqueWords = new List<string>();
         uniqueWords.Add(words[0]);
