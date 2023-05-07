@@ -1,6 +1,5 @@
 ﻿namespace Exercise1;
 
-public delegate void LightHandler();
 public class TrafficLight
 {
     private string _name;
@@ -8,11 +7,11 @@ public class TrafficLight
     
     public string Name { get { return _name; }}
     public Light CurrentLight { get{ return _lights.Current; }}
-    
+
     public TrafficLight(string name, Lights lights)
     {
         _name = name;
-        _lights = lights;
+        _lights = (Lights)lights.Clone();
     }
 
     public void ChangeLight()

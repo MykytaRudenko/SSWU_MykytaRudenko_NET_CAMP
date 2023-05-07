@@ -7,6 +7,8 @@ public class XCrossRoadStrategy : IStrategy
 {
     private Timer _timer;
     private List<TrafficLight>[] _trafficLightLines;
+    
+    private static object lockObj = new object();
 
     public XCrossRoadStrategy(uint redAndGreenDuration)
     {
@@ -27,10 +29,14 @@ public class XCrossRoadStrategy : IStrategy
 
     public void Start()
     {
-        _timer = new Timer(_trafficLightLines[0][0].CurrentLight.Duration);
+        _timer = new Timer();
+        lock (lockObj)
+        {
+            _timer.Interval = _trafficLightLines[0][0].CurrentLight.Duration;
+        }
         _timer.Elapsed += OnElapsed;
         _timer.AutoReset = true;
-        _timer.Enabled = true;
+        _timer.Start();
         Console.ReadLine();
         _timer.Stop();
         _timer.Dispose();
@@ -38,9 +44,14 @@ public class XCrossRoadStrategy : IStrategy
 
     private void OnElapsed(Object source, ElapsedEventArgs e)
     {
-        ChangeAllLights();
-        _timer.Interval = _trafficLightLines[0][0].CurrentLight.Duration;
-        Console.WriteLine(ToString());
+        lock (lockObj)
+        {
+            Console.WriteLine(ToString());
+            ChangeAllLights();
+            _timer.Stop();
+            _timer.Interval = (int)_trafficLightLines[0][0].CurrentLight.Duration;
+            _timer.Start();
+        }
     }
 
     private void ChangeAllLights()
@@ -49,7 +60,7 @@ public class XCrossRoadStrategy : IStrategy
         {
             foreach (var trafficLight in line)
             {
-                trafficLight.ChangeLight();
+             trafficLight.ChangeLight();   
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Exercise1;
 
-public class Lights
+public class Lights : ICloneable
 {
     private Light[] _lightsArray;
 
@@ -8,7 +8,6 @@ public class Lights
     public Light Current { get { return _lightsArray[_index]; } }
     public Lights(params Light[] lightsValues)
     {
-        _index = 0;
         _lightsArray = (Light[])lightsValues.Clone();
     }
     public void Next()
@@ -19,5 +18,10 @@ public class Lights
             return ;
         }
         ++_index;
+    }
+
+    public object Clone()
+    {
+        return new Lights(_lightsArray);
     }
 }
