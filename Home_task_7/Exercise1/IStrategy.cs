@@ -1,6 +1,6 @@
 ﻿namespace Exercise1;
 
-public interface IStrategy
+public interface IStrategy : ICloneable
 {
     public void Start();
 }

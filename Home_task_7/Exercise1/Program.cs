@@ -1,5 +1,5 @@
 ﻿using Exercise1;
 
-var context = new TrafficLightsContext(new XCrossRoadStrategy(5000));
+var context = new Context(new XStrategy(5000));
 context.StartTraffic();
 Console.WriteLine();

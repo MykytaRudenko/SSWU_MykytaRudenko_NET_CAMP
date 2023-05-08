@@ -3,17 +3,17 @@ using System.Timers;
 using Timer = System.Timers.Timer;
 namespace Exercise1;
 
-public class XCrossRoadStrategy : IStrategy
+public class XStrategy : IStrategy
 {
     private Timer _timer;
     private List<TrafficLight>[] _trafficLightLines;
     
     private static object lockObj = new object();
 
-    public XCrossRoadStrategy(uint redAndGreenDuration)
+    public XStrategy(uint redAndGreenDuration)
     {
         _trafficLightLines = new List<TrafficLight>[2];
-        Lights firstLineLights= new Lights(new Light("червоний", redAndGreenDuration), new Light("жовтий", 1000), new Light("зелений", redAndGreenDuration), new Light("жовтий", 1000));
+        Lights firstLineLights = new Lights(new Light("червоний", redAndGreenDuration), new Light("жовтий", 1000), new Light("зелений", redAndGreenDuration), new Light("жовтий", 1000));
         _trafficLightLines[0] = new List<TrafficLight>()
         {
             new TrafficLight("Північ-південь", firstLineLights),
@@ -44,6 +44,7 @@ public class XCrossRoadStrategy : IStrategy
 
     private void OnElapsed(Object source, ElapsedEventArgs e)
     {
+        // блокування потоку об'єктом для білшої безпеки
         lock (lockObj)
         {
             Console.WriteLine(ToString());
@@ -63,6 +64,11 @@ public class XCrossRoadStrategy : IStrategy
              trafficLight.ChangeLight();   
             }
         }
+    }
+
+    public object Clone()
+    {
+        return new XStrategy(_trafficLightLines[0][0].CurrentLight.Duration);
     }
 
     public override string ToString()

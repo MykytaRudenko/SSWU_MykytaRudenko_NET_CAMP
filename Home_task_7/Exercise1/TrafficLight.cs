@@ -10,7 +10,7 @@ public class TrafficLight
 
     public TrafficLight(string name, Lights lights)
     {
-        _name = name;
+        _name = (string)name.Clone();
         _lights = (Lights)lights.Clone();
     }
 
