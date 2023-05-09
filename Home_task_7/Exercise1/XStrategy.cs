@@ -13,6 +13,7 @@ public class XStrategy : IStrategy
     public XStrategy(uint redAndGreenDuration)
     {
         _trafficLightLines = new List<TrafficLight>[2];
+        // Ідея цікава. Розглядати як набір кольрових ламп.
         Lights firstLineLights = new Lights(new Light("червоний", redAndGreenDuration), new Light("жовтий", 1000), new Light("зелений", redAndGreenDuration), new Light("жовтий", 1000));
         _trafficLightLines[0] = new List<TrafficLight>()
         {
