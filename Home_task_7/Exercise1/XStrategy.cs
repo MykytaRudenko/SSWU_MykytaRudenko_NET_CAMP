@@ -73,7 +73,7 @@ public class XStrategy : IStrategy
     }
 
     public override string ToString()
-    {
+    {// Невідформатований друк
         StringBuilder sb = new StringBuilder();
         sb.AppendLine($"t = {_trafficLightLines[0][0].CurrentLight.Duration} мс");
         sb.Append("Світлофор\t");
