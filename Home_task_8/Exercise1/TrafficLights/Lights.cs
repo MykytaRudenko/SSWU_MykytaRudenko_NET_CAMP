@@ -43,7 +43,7 @@ public class Lights : IEnumerator<Light>, ICloneable
 
     public void Reset()
     {
-        _index = -1;
+        _index = 0;
     }
 
     public void Dispose()

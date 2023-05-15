@@ -6,7 +6,7 @@ namespace Exercise1;
 
 public class XStrategyMultiroads : IStrategy
 {
-    private System.Timers.Timer _timer;
+    private Timer _timer;
     private uint _statusInterval;
     private uint _numberOfRoadsInLine;
     private List<AbstractTrafficLight>[] _trafficLightLines;
