@@ -1,5 +1,6 @@
 ﻿namespace Exercise2;
 
+
 public interface IShippingVisitor
 {
     void Visit(Product product);

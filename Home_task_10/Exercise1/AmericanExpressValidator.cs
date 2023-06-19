@@ -1,5 +1,6 @@
 ﻿namespace Exercise1;
 
+
 public class AmericanExpressValidator : CardValidator
 {
     public override bool Validate(Card card)

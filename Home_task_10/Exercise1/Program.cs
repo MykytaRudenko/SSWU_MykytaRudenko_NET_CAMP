@@ -1,5 +1,6 @@
 ﻿using Exercise1;
 
+
 var card = new Card(new int[]{ 4, 0, 0, 3, 7, 8, 9, 1, 0, 0, 2, 0, 5, 3, 8, 1});
 var luhn = new LuhnAlgorithmValidator();
 var american = new AmericanExpressValidator();

@@ -2,6 +2,7 @@
 
 namespace Exercise1;
 
+
 public class Card
 {
     private CardType _cardType;

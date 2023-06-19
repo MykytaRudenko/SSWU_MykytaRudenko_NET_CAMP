@@ -1,5 +1,6 @@
 ﻿using Exercise2;
 
+
 List<Item> items = new List<Item>
 {
     new Product { Weight = 2.5, IsPerishable = true },

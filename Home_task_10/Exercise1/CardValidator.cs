@@ -1,5 +1,6 @@
 ﻿namespace Exercise1;
 
+
 public abstract class CardValidator
 {
     protected CardValidator successor;

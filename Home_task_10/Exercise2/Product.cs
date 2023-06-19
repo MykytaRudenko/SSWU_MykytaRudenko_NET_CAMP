@@ -1,5 +1,6 @@
 ﻿namespace Exercise2;
 
+
 public class Product : Item
 {
     public double Weight { get; set; }

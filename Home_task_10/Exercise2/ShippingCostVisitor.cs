@@ -1,5 +1,6 @@
 ﻿namespace Exercise2;
 
+
 public class ShippingCostVisitor : IShippingVisitor
 {
     public double TotalShippingCost { get; private set; }

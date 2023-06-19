@@ -1,5 +1,6 @@
 ﻿namespace Exercise1;
 
+
 public enum CardType
 {
     Unknown,
