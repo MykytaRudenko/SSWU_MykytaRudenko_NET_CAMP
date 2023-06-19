@@ -16,7 +16,7 @@ public class Card
         }
         private set
         {
-            
+
             if (value.Length > 16 || value.Length < 13) throw new Exception("Credit card number can`t contain " + value.Length + " symbols.");
             _cardNumber = value;
         }

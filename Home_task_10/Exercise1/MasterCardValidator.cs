@@ -1,6 +1,4 @@
-﻿using Range = System.Range;
-
-namespace Exercise1;
+﻿namespace Exercise1;
 
 public class MasterCardValidator : CardValidator
 {
